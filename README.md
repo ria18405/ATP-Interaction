@@ -24,6 +24,6 @@
 	* +1 = ATP INTERACTING RESIDUE
 	* -1 = NON ATP INTERACTING RESIDUE
 
-[Output file](https://github.com/ria18405/ATP-Interaction/output.txt)
+[Output file](https://github.com/ria18405/ATP-Interaction/blob/master/output.txt)
 
 
