@@ -35,6 +35,11 @@
 	* +1 = ATP INTERACTING RESIDUE
 	* -1 = NON ATP INTERACTING RESIDUE
 
+* Kaggle score = 0.61957
+
 [Output file](https://github.com/ria18405/ATP-Interaction/blob/master/output.txt)
 
+#### Identification of ATP binding residues of a protein from its primary sequence 
+
+Chauhan, J.S., Mishra, N.K. & Raghava, G.P. Identification of ATP binding residues of a protein from its primary sequence. BMC Bioinformatics 10, 434 (2009). https://doi.org/10.1186/1471-2105-10-434 
 
