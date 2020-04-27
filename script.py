@@ -1,4 +1,6 @@
-from sklearn import svm
+from sklearn.svm import SVC
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.ensemble import BaggingClassifier
 
 def find_patterns(n,p):
 	"""
@@ -25,12 +27,12 @@ def find_patterns(n,p):
 
 		X.append(seq_dict)
 	
-	"""
-	Small alphabet indicates ATP interacting residues
-	ATP interacting = +1
-	Non ATP interacting = -1
+		"""
+		Small alphabet indicates ATP interacting residues
+		ATP interacting = +1
+		Non ATP interacting = -1
 
-	"""
+		"""
 		if (ord(p[i:i+n][half_n]) >=97):
 			Y.append(1)
 		else:
@@ -67,7 +69,7 @@ X_train=[]
 Y_train=[]
 file=open('train.data','r')
 data=file.readlines()
-n=7			#n=pattern length
+n=17			#n=pattern length
 for i in range(1,len(data)):
 	
 	"""
@@ -91,9 +93,10 @@ for i in range(1,len(data)):
 [Optional]now apply five fold verification: append 4 outputs to X and 
 leave 1 for testing purpose.
 """
-
-clf = svm.SVC(gamma ='scale')
+clf = OneVsRestClassifier(BaggingClassifier(SVC(kernel='linear', probability=True, class_weight= 'balanced'), max_samples=1.0 /10, n_estimators=10))
+# clf = svm.SVC(gamma ='scale')
 clf.fit(X_train, Y_train)
+
 
 #-------------------TESTING-----------
 

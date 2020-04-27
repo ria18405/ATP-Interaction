@@ -8,15 +8,26 @@
 
 * **TRAINING**
 
-	* Make patterns of length n=7 for each protien sequence.
+	* Choose a value of n, i.e length of patterns. eg, n=7/n=9,n=17 etc.
+
+	* Add ((n-1)/2)'XXX..' in the starting and end of the protien sequence such that we have (XX..protien_seq..XX).
+
+	* Make patterns or cut windows of length n for each protien sequence.
 
 	* Apply Binary Profiling on each pattern i.e we'll have matrix of size (21 * n) for one pattern
+	Binary profile essentially means making a 2-Dimentional array, which stores 1 for each match with the list of Amino Acids and 'X'. Else, stores 0 for non-match.
 
 	* We know that a small aplhabet indicates an ATP interacting residue, so mark it as -1 (non interacting) or +1 (interacting) 
+
+	* Used OneVsRestClassifier in SVM.
+
+	* Used (.fit(X,Y)) to train the dataset, where X is the binary profiled matrix and Y is the list containing answers i.e if each residue is ATP interacting or not.
 
 * **TESTING**
 
 	* Predict using `predict(X)` function by passing the residue protien as an argument.
+
+	* For Testing purposes, we join all amino Acids into a protien and then perform pattern formation (as explained above in training dataset) followed by binary profiling. 
 
 #### OUTPUT
 
